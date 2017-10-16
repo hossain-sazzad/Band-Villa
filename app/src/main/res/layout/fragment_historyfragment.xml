@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1EBEA"
+    tools:context="layout.Historyfragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/artcell"/>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+
+        android:text="Artcell is a Bangladeshi progressive metal band formed in October 1999 According to The Daily Star, a leading English national daily, Artcell is quot( one of the leading bands of the country ) Prior to forming the band, the four current members were school friends from Dhaka, and used to get together to play Metallica songs. Eventually, Ershad came up with compositions of his own and the group began to play them at shows. The positive response they received led them to the formation of a band. What started off as an underground band is now one of the most recognised mainstream bands in the Bengali metal music scene.
+
+The name Artcell was decided upon because it was softer sounding than a typical heavy metal name. In Cézanne and Shaju's words:
+
+Even though we were a heavy metal band when we started, we didn't want a heavy metal name. We wanted a softer or an artistic touch to the heavy metal side. 'Cells where art is produced' – that was pretty much the basic idea behind the name 'Artcell.' Ershad came up with it and we all opted for it"
+        android:textSize="20dp"/>
+    </ScrollView>
+</LinearLayout>

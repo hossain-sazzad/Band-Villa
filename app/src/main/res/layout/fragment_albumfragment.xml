@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="layout.Albumfragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#F1EBEA"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="100dp"
+            android:src="@drawable/artcellonnosomoy"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Onnosomoy"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2002"
+                android:textSize="15dp"
+                android:layout_marginBottom="20dp"/>
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+
+                android:id="@+id/onnosomoysongbutton"
+                android:text="Songs"
+                android:onClick="onnosomoyonclick"
+
+                android:textColor="#FFFFFF"
+                android:background="#0330FA"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F1EBEA"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="130dp"
+            android:paddingLeft="15dp"
+            android:layout_marginRight="90dp"
+            android:src="@drawable/artcelloniketprantor"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oniket Prantor"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2006"
+                android:textSize="15dp"
+                android:layout_marginBottom="30dp"/>
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:text="Songs"
+                android:id="@+id/oniketprantorsongbutton"
+                android:onClick="oniketprantoronclick"
+                android:textColor="#FFFFFF"
+                android:background="#0330FA"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
