@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191919"
+    tools:context="com.example.user.bd_bands.CreateBand">
+
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+android:textColor="#ffffff"
+        android:text="Band name"
+        android:textSize="20dp"
+        />
+    <EditText
+        style="@style/Widget.AppCompat.EditText"
+android:hint="   band name"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_marginLeft="20dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/createbandname"/>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:text="Formation Year"
+
+        />
+    <EditText
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/createformationyear"/>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:text="Genre"
+        />
+    <EditText
+
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+
+        android:id="@+id/creategenre"/>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+
+        android:text="Line up"
+        android:textColor="#ffffff"
+        android:textSize="20dp"        />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:id="@+id/createlineup"/>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+
+        android:text="country"
+        android:textColor="#ffffff"
+        android:textSize="20dp"        />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:id="@+id/createcountry"/>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+
+        android:text="History"
+        android:textColor="#ffffff"
+        android:textSize="20dp"        />
+    <EditText
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/createhistory"/>
+
+    <Button
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="20dp"
+        android:text="Submit"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="#308866"
+        android:id="@+id/createbandbutton"/>
+
+
+
+
+</LinearLayout>

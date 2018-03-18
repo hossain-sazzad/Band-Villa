@@ -2,6 +2,7 @@ package com.example.user.bd_bands;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import android.widget.Button;
 import android.widget.RatingBar;
 
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -35,18 +37,19 @@ import android.widget.RatingBar;
  */
 
 public class Customadapterforalbumlist2 extends BaseAdapter {
-
+    public int[] albumid;
     public String[] names;
-    public String[] year;
-
-    public int[] images;
+    public int[] year;
+    public int[] songscount;
+    public String[] images;
     public Context ct;
     private static LayoutInflater inflater=null;
 
-    public Customadapterforalbumlist2(Context m, String[] n, String[] n2, int[] i) {
+    public Customadapterforalbumlist2(Context m,int[] id, String[] n, int[] n2, int[] sc, String[] i) {
         names = n;
+        albumid=id;
         year=n2;
-
+        songscount=sc;
         images = i;
         ct=m;
         inflater=(LayoutInflater) ct.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -69,10 +72,15 @@ public class Customadapterforalbumlist2 extends BaseAdapter {
         ImageView iv;
         TextView tv;
         TextView tv2;
+        TextView tv3;
 
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
+       /* Log.d("aname",names[position]);
+        Log.d("aname",""+year[position]);
+        Log.d("aname",""+songscount[position]);*/
         Myholder mh;
         mh=new Myholder();
         View myview;
@@ -81,17 +89,24 @@ public class Customadapterforalbumlist2 extends BaseAdapter {
         mh.tv=(TextView) myview.findViewById(R.id.albumname);
         mh.tv2=(TextView) myview.findViewById(R.id.albumyear);
 
-
+        mh.tv3=(TextView) myview.findViewById(R.id.songscount);
 
         mh.tv.setText(names[position]);
-        mh.iv.setImageResource(images[position]);
-        mh.tv2.setText(year[position]);
+
+       // mh.iv.setImageResource(R.drawable.artcell);
+        mh.tv2.setText(""+year[position]);
+        mh.tv3.setText(""+songscount[position]);
+
+        Picasso.with(ct).load("http://10.0.2.2:8000"+images[position]).into(mh.iv);
+        Log.d("image","http://10.0.2.2:8000"+images[position]);
 
         myview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ct," "+ names[position],Toast.LENGTH_LONG).show();
                 Intent openThree = new Intent(ct,Onnosomoysongs.class);
+                Log.d("albumid",""+albumid[position]);
+                openThree.putExtra("value", albumid[position]);
                 ct.startActivity(openThree);
             }
         });

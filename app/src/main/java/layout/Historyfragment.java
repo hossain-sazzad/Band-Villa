@@ -17,7 +17,7 @@ import com.example.user.bd_bands.R;
  * to handle interaction events.
  * Use the {@link Historyfragment#newInstance} factory method to
  * create an instance of this fragment.
- */
+ **/
 public class Historyfragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,7 +41,7 @@ public class Historyfragment extends Fragment {
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
      * @return A new instance of fragment Historyfragment.
-     */
+     **/
     // TODO: Rename and change types and number of parameters
     public static Historyfragment newInstance(String param1, String param2) {
         Historyfragment fragment = new Historyfragment();
@@ -98,10 +98,10 @@ public class Historyfragment extends Fragment {
      * to the activity and potentially other fragments contained in that
      * activity.
      * <p>
-     * See the Android Training lesson <a href=
+     * See t*e Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
-     */
+     **/
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

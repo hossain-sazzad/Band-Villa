@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="#191919"
+    tools:context="com.example.user.bd_bands.UploadAlbum">
+
+    <TextView
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="Add Song"/>
+
+    <TextView
+        android:textColor="#ffffff"
+
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Song name"/>
+    <EditText
+        android:layout_marginTop="20dp"
+        style="@style/Widget.AppCompat.EditText"
+        android:hint="   song name"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/uploadsongname"
+
+        />
+    <TextView
+        android:textColor="#ffffff"
+android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+
+        android:textSize="20dp"
+
+        android:text="Album name"/>
+    <EditText
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/songalbumname"/>
+    <TextView
+        android:textColor="#ffffff"
+android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:text="Video Link"/>
+    <EditText
+        android:layout_marginTop="20dp"
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="20dp"
+
+        android:id="@+id/vediolink"/>
+
+    <TextView
+        android:textColor="#ffffff"
+android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:text="Lyric"/>
+    <EditText
+        android:layout_marginTop="20dp"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:lines="8"
+        android:minLines="1"
+        android:gravity="top|left"
+        android:maxLines="30"
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="20dp"
+
+        android:id="@+id/lyric"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="upload"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+android:background="#308866"
+        android:id="@+id/uploadsong"
+        android:gravity="center"/>
+
+</LinearLayout>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#191919"
+    tools:context="com.example.user.bd_bands.Profile">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:src="@drawable/bandmusic"
+    android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+    <TextView
+
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+android:textColor="#ffff"
+
+        android:textSize="25dp"
+        android:id="@+id/profilebandname"
+        />
+        <Button
+            android:background="#12561a"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:id="@+id/updateband"
+            android:text="update info"
+            android:layout_marginLeft="120dp"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layout_marginLeft="20dp"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        android:id="@+id/profilecountalbums"
+        />
+    <ListView
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:id="@+id/profilealbumlist"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+</LinearLayout>

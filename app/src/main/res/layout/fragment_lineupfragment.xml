@@ -3,21 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bb6"
     tools:context="layout.Lineupfragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/artcell"/>
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/lineupimageid"
+    />
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
     <TextView
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
         android:paddingLeft="15dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Ershad Zaman, Lead guitar and vocals (1999–present)\n\n
-George Lincoln D'Costa, Vocal and guitar (1999–present)\n\n
-Saef Al Nazi Cézanne – Bass, back-up vocals (1999–present)\n\n
-Kazi Sajjadul Asheqeen Shaju – Drums (1999–present)"
-        android:textSize="20dp"/>
+        android:layout_height="wrap_content"
+      android:id="@+id/lineupid"
+        android:textSize="18dp"/>
+  </ScrollView>
 
 </LinearLayout>

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "26.0.0"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.user.bd_bands"
         minSdkVersion 15
@@ -24,9 +24,16 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
+    //  compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    //compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+
     testCompile 'junit:junit:4.12'
-    compile files('libs/YouTubeAndroidPlayerApi.jar')
 }

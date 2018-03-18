@@ -15,12 +15,34 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
          />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+ <ImageButton
+     android:layout_marginTop="20dp"
+     android:layout_width="50dp"
+     android:layout_height="40dp"
+     android:visibility="invisible"
+     android:src="@drawable/like4"
+
+     android:id="@+id/likebutton"
+     />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textColor="#191919"
+            android:textSize="25dp"
+android:visibility="invisible"
+            android:id="@+id/likecount"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play"
         android:layout_gravity="center"
         android:id="@+id/playbutton"/>
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -28,26 +50,7 @@
             android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="আর্তনাদে হিঁচড়ে পড়ছে\n
-বেদনা\n
-হৃদয়ের কলুষতার বিষাক্ততা\n
-দূষিত করেছে আমায়\n
-সমাজের নিত্য চাপে…\n
-গ্রাস করেছে আমাকে\n
-গ্রহন লেগেছে সত্তায়\n
-দাসত্বের দাস হয়ে ফিরছি\n
-বিবাগী পথিকের বেশে\n
-বারে বারে একই ঠিকানায়।\n
-মানুষ এগিয়ে যায় অন্যসময়ে\n
-আকাশ বদলে যায় অন্য আকাশে।\n
-দেহের বায়ু ক্রমশ ফুরিয়ে\n
-জীবনের চাহিদা কিছু বাকি রয়ে যায়,\n
-হৃদয়ের পাখি এখনও বন্দী খাঁচায়\n
-জীবনের সীমানা দূরে দেখা যায়\n
-মুক্তির সিঁড়ি পেরিয়ে\n
-কে বা কার দেখা পায়\n
-দাসত্বের দাস হয়ে ফিরছি\n
-বিবাগী পথিকের বেশে\n
-বারে বারে একই ঠিকানায়।"/>
+            android:id="@+id/lyricid"
+            />
     </ScrollView>
 </LinearLayout>

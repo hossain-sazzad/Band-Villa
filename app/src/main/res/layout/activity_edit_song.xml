@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#191919"
+
+    tools:context="com.example.user.bd_bands.EditSong">
+
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Song name"
+        android:textColor="#ffff"
+        android:textSize="20dp"
+        />
+    <EditText
+        android:layout_marginLeft="20dp"
+
+        style="@style/Widget.AppCompat.EditText"
+        android:hint="   band name"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/editsongname"/>
+    <TextView
+        android:layout_marginLeft="20dp"
+android:layout_marginTop="20dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Youtube Link"
+        android:textColor="#ffff"
+        android:textSize="20dp"
+        />
+    <EditText
+        android:layout_marginLeft="20dp"
+
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/editutubelink"/>
+    <TextView
+        android:layout_marginLeft="20dp"
+android:layout_marginTop="20dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Lyric"
+        android:textColor="#ffff"
+        android:textSize="20dp"
+        />
+    <EditText
+        android:layout_marginLeft="20dp"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+    android:lines="8"
+    android:minLines="1"
+    android:gravity="top|left"
+    android:maxLines="30"
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@layout/rounded_border_edittext"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:id="@+id/editlyric"/>
+
+    <Button
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="50dp"
+        android:text="Update"
+        android:background="#308866"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/editsongupdatebutton"/>
+
+</LinearLayout>

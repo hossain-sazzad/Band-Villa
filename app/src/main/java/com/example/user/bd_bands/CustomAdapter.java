@@ -1,6 +1,9 @@
 package com.example.user.bd_bands;
         import android.content.Context;
         import android.content.Intent;
+        import android.graphics.Bitmap;
+        import android.graphics.BitmapFactory;
+        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -11,6 +14,12 @@ package com.example.user.bd_bands;
         import android.widget.Button;
         import android.widget.RatingBar;
 
+        import com.squareup.picasso.Picasso;
+
+        import java.io.IOException;
+        import java.io.InputStream;
+        import java.net.MalformedURLException;
+        import java.net.URL;
 
 
 /**
@@ -21,15 +30,15 @@ public class CustomAdapter extends BaseAdapter {
 
     public String[] names;
     public String[] types;
-
-    public int[] images;
+    public  int[] id;
+    public String[] images;
     public Context ct;
     private static LayoutInflater inflater=null;
 
-    public CustomAdapter(Context m, String[] n, String[] n2, int[] i) {
+    public CustomAdapter(Context m, int[] id,String[] n, String[] n2, String[] i) {
         names = n;
         types=n2;
-
+         this.id=id;
         images = i;
         ct=m;
         inflater=(LayoutInflater) ct.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,6 +63,7 @@ public class CustomAdapter extends BaseAdapter {
         TextView tv2;
 
     }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         Myholder mh;
@@ -67,9 +77,9 @@ public class CustomAdapter extends BaseAdapter {
 
 
         mh.tv.setText(names[position]);
-        mh.iv.setImageResource(images[position]);
         mh.tv2.setText(types[position]);
 
+        Picasso.with(ct).load("http://10.0.2.2:8000"+images[position]).into(mh.iv);
         myview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +87,7 @@ public class CustomAdapter extends BaseAdapter {
 
                 Intent myIntent = new Intent(ct,Artcellinfo.class);
 
-                myIntent.putExtra("value", 2);
+                myIntent.putExtra("value", id[position]);
 
                 ct.startActivity(myIntent);
             }

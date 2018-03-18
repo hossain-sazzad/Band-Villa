@@ -1,5 +1,6 @@
 package com.example.user.bd_bands;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,18 +21,41 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+
 
 public class Artcellinfo extends AppCompatActivity {
 
 
-    // getIntent() is a method from the started activity
-    Intent myIntent = getIntent(); // gets the previously created intent
-//    String history = myIntent.getStringExtra("history"); // will return "FirstKeyValue"
-   // String lineup= myIntent.getStringExtra("lineup");
- //   String albums= myIntent.getStringExtra("albums");
+    public  static int bandid=1;
 
+
+
+    public int getid()
+    {
+
+        Log.d("bandid2", " "+bandid);
+        return  bandid;
+    }
+    public Intent getintent()
+    {
+        return  getIntent();
+    }
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -52,9 +77,10 @@ public class Artcellinfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artcellinfo);
 
-        Intent mIntent = getIntent();
-        final int intValue = mIntent.getIntExtra("value",-1);
 
+        Intent intent=getIntent();
+       bandid= intent.getIntExtra("value",-1);
+        Log.d("bandid"," "+bandid);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -74,15 +100,7 @@ public class Artcellinfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(intValue==1)
-                {
-                    Intent openThree = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(openThree);
-                }
-                else {
-                    Intent openThree = new Intent(getApplicationContext(), onnosomoyvideo.class);
-                    startActivity(openThree);
-                }
+
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -137,9 +155,20 @@ public void onnosomoyonclick(View v)
          * The fragment argument representing the section number for this
          * fragment.
          */
+        Artcellinfo a= new Artcellinfo();
+        //int bandid=a.getid();
+        int[] id;
+       int[] ry;
+        String[] images2;
+        String[] names2;
+        int[] songscount;
+        int isend=0;
+
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
+
         }
 
         /**
@@ -157,19 +186,174 @@ public void onnosomoyonclick(View v)
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+            final Context ct= this.getContext();
+
+
+
             if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
                 View rootView = inflater.inflate(R.layout.fragment_historyfragment, container, false);
+                Artcellinfo a=new Artcellinfo();
+
+                // if(isend==0) {
+                int bandid;
+                bandid = a.getid();
+                final TextView textView=(TextView) rootView.findViewById(R.id.historyid);
+                final ImageView imageView=(ImageView) rootView.findViewById(R.id.imageid);
+
+                String url="http://10.0.2.2:8000/bands/"+bandid+"/";
+                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        int len=response.length();
+                        int[] id=new int[len];
+                        String[] history = new String[len];
+                        String[] image = new String[len];
+
+
+                        for(int i=0;i<response.length();i++)
+                        {
+                            try {
+
+
+                                JSONObject jsonObject=(JSONObject) response.get(i);
+                                id[i]=jsonObject.getInt("id");
+                                Log.d("idnibo ",""+id[i]);
+                                history[i]=jsonObject.getString("history");
+                                image[i]=jsonObject.getString("image");
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                      textView.setText(history[0]);
+                        Picasso.with(getContext()).load("http://10.0.2.2:8000"+image[0]).into(imageView);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        VolleyLog.d("volley log hoise",error);
+                    }
+                });
+                com.example.user.bd_bands.AppController.getInstance().addToRequestQueue(jsonArrayRequest);
 
                 return rootView;
-            } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
-                View rootView = inflater.inflate(R.layout.fragment_lineupfragment, container, false);
+            } else {
+                if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
+                    View rootView = inflater.inflate(R.layout.fragment_lineupfragment, container, false);
+                    Artcellinfo a = new Artcellinfo();
 
-                return rootView;
-            }
-            else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
-                View rootView = inflater.inflate(R.layout.fragment_albumfragment, container, false);
+                    // if(isend==0) {
+                    int bandid;
+                    bandid = a.getid();
+                    final TextView textView = (TextView) rootView.findViewById(R.id.lineupid);
+                    final ImageView imageView = (ImageView) rootView.findViewById(R.id.lineupimageid);
 
-                return rootView;
+                    String url = "http://10.0.2.2:8000/bands/" + bandid + "/";
+                    Log.d("urllll", url);
+                    JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+
+                            int len = response.length();
+                            int[] id = new int[len];
+                            String[] lineup = new String[len];
+                            String[] image = new String[len];
+
+
+                            for (int i = 0; i < response.length(); i++) {
+                                try {
+
+
+                                    JSONObject jsonObject = (JSONObject) response.get(i);
+                                    id[i] = jsonObject.getInt("id");
+                                    Log.d("idnibo ", "" + id[i]);
+                                    lineup[i] = jsonObject.getString("lineup");
+                                    image[i] = jsonObject.getString("image");
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            textView.setText(lineup[0]);
+                            Log.d("lineup", lineup[0]);
+                            Picasso.with(getContext()).load("http://10.0.2.2:8000" + image[0]).into(imageView);
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            VolleyLog.d("volley log hoise", error);
+                        }
+                    });
+                    AppController.getInstance().addToRequestQueue(jsonArrayRequest);
+                    return rootView;
+                } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
+
+                    final View rootView = inflater.inflate(R.layout.fragment_albumlist, container, false);
+
+                    final ListView lv = (ListView) rootView.findViewById(R.id.albumlistview);
+                    Artcellinfo a = new Artcellinfo();
+
+                    // if(isend==0) {
+                    int bandid;
+                    bandid = a.getid();
+                    String url = "http://10.0.2.2:8000/album/" + bandid + "/";
+
+
+                    Log.d("fick", url);
+
+                    ServerResponse serverResponse = new ServerResponse();
+                    serverResponse.youFunctionForVolleyRequest(ct, url, new ServerCallback() {
+                        @Override
+                        public void onSuccess(JSONArray response) {
+
+                            ry = new int[response.length()];
+                            id = new int[response.length()];
+                            images2 = new String[response.length()];
+                            names2 = new String[response.length()];
+                            songscount = new int[response.length()];
+
+                            for (int i = 0; i < response.length(); i++) {
+                                try {
+
+
+                                    JSONObject jsonObject = (JSONObject) response.get(i);
+                                    id[i] = jsonObject.getInt("id");
+                                    names2[i] = jsonObject.getString("name");
+                                    ry[i] = jsonObject.getInt("releaseyear");
+                                    images2[i] = jsonObject.getString("image");
+                                    songscount[i] = jsonObject.getInt("songscount");
+
+                                    Log.d("msg", "id" + id[i]);
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            isend = 1;
+                            Customadapterforalbumlist2 myadap = new Customadapterforalbumlist2(ct, id, names2, ry, songscount, images2);
+
+                            lv.setAdapter(myadap);
+
+                        }
+                    });
+              /*  }
+                else {
+                    Log.d("isend",""+isend++);
+                    Customadapterforalbumlist2 myadap = new Customadapterforalbumlist2(ct, id, names2, ry, songscount, images2);
+
+                    lv.setAdapter(myadap);
+
+                }*/
+
+
+                    return rootView;
+                }
             }
 
             return null;
@@ -181,6 +365,7 @@ public void onnosomoyonclick(View v)
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
