@@ -32,7 +32,7 @@ public class CustomAdapter extends BaseAdapter {
     public String[] types;
     public  int[] id;
     public String[] images;
-    public Context ct;
+    private Context ct;
     private static LayoutInflater inflater=null;
 
     public CustomAdapter(Context m, int[] id,String[] n, String[] n2, String[] i) {
@@ -94,6 +94,9 @@ public class CustomAdapter extends BaseAdapter {
         });
         return  myview;
     }
+	public Context getCt() {
+		return ct;
+	}
 
 }
 
