@@ -245,7 +245,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
+            /* ********OpenRefactory Warning********
+			 Possible null pointer Dereference!
+			 Path: 
+				File: LoginActivity.java, Line: 227
+					View focusView=null;
+					Variable focusView is initialized null.
+				File: LoginActivity.java, Line: 232
+					focusView=mPasswordView;
+					Variable focusView is assigned.
+				File: LoginActivity.java, Line: 239
+					focusView=mEmailView;
+					Variable focusView is assigned.
+				File: LoginActivity.java, Line: 243
+					focusView=mEmailView;
+					Variable focusView is assigned.
+				File: LoginActivity.java, Line: 250
+					focusView.requestFocus();
+					focusView is referenced in method invocation.
+			*/
+			// There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
         } else {
