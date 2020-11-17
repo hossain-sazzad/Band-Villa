@@ -42,7 +42,7 @@ public class Customadapterforalbumlist2 extends BaseAdapter {
     public int[] year;
     public int[] songscount;
     public String[] images;
-    public Context ct;
+    private Context ct;
     private static LayoutInflater inflater=null;
 
     public Customadapterforalbumlist2(Context m,int[] id, String[] n, int[] n2, int[] sc, String[] i) {
@@ -112,6 +112,9 @@ public class Customadapterforalbumlist2 extends BaseAdapter {
         });
         return  myview;
     }
+	public Context getCt() {
+		return ct;
+	}
 
 }
 
